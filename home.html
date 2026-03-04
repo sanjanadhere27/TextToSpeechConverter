@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceGen - Text To Speech</title>
+    <style>
+        /* Reset some defaults */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #FFF8F0; /* soft cream */
+            color: #4B382A; /* dark brown text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #F7EEE1; /* lighter cream */
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #8B5E3C; /* soft brown header */
+            font-size: 1.8rem;
+        }
+
+        textarea, select, input[type="number"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #D1BFA7;
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        textarea:focus, select:focus, input[type="number"]:focus {
+            border-color: #C08457;
+            box-shadow: 0 0 8px rgba(200, 132, 87, 0.3);
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #C08457; /* soft brown button */
+            color: #FFF8F0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #A55E3C;
+            transform: scale(1.05);
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #C08457;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #8B5E3C;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Text To Speech Converter</h2>
+
+    <form method="POST">
+
+        <label for="text">Enter Text:</label>
+        <textarea id="text" name="text" rows="5" placeholder="Enter text here"></textarea>
+
+        <label for="voice">Select Voice:</label>
+        <select id="voice" name="voice">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label for="volume">Volume (0 to 1):</label>
+        <input type="number" id="volume" step="0.1" min="0" max="1" name="volume" value="1">
+
+        <label for="speed">Speed (50 to 300):</label>
+        <input type="number" id="speed" min="50" max="300" name="speed" value="150">
+
+        <button type="submit">🔊 Convert to Speech</button>
+
+    </form>
+
+    <a href="/logout">Logout</a>
+</div>
+
+</body>
+</html>
